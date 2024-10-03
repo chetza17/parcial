@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia Artificial, Ciberseguridad y Algoritmos de Búsqueda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #2c3e50;
+        }
+
+        h1 {
+            color: #2980b9;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            border: 2px solid #333;
+            background-color: #fff;
+        }
+
+        header {
+            background-color: #2980b9;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #fff;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 50px;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-left: 5px solid #2980b9;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .code-section {
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            background-color: #eaf2f8;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        /* Styles for DFS vs BFS comparison table */
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2214e4;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            th, td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Clase 15 de Agosto de 2024</h1>
+    <div class="section">
+        <p style="text-align: justify;">
+            En el webinar sobre Ciberseguridad, Inteligencia Artificial y Computación en la Nube, se destacó la importancia de la ciberseguridad
+            para prevenir ataques de malware y phishing, los cuales buscan robar información sin el consentimiento de las personas.
+        </p>
+        <p>
+            El uso de inteligencia artificial (IA) y computación en la nube en el sector financiero está transformando procesos clave al automatizar tareas, reducir costos y mejorar la seguridad. La IA permite optimizar operaciones como la verificación de identidad, la prevención del fraude y el análisis predictivo para mejorar la toma de decisiones. Además, la computación en la nube facilita la escalabilidad, ofreciendo servicios más rápidos y personalizados.
+        </p>
+    </div>
+
+    <h1>¿Qué es la Inteligencia Artificial?</h1>
+    <div class="section">
+        <p style="text-align: justify;">
+            La inteligencia artificial (IA) es un campo de la informática que busca crear sistemas capaces de realizar tareas que requieren inteligencia humana, como el reconocimiento de voz, el aprendizaje automático, la toma de decisiones y la traducción de idiomas. La IA se divide en dos tipos: IA estrecha, que realiza tareas específicas como asistentes virtuales, e IA general, que aspiraría a tener capacidades cognitivas humanas completas (aunque aún no existe). Se utiliza en áreas como la salud, la automatización industrial, finanzas y vehículos autónomos, aunque plantea desafíos éticos como la privacidad y el desempleo.
+        <p style="text-align: justify;">
+            La IA se divide en dos categorías principales:
+        </p>
+        <ul>
+            <li>
+                <strong>IA estrecha o IA débil:</strong> Inteligencia artificial diseñada para realizar tareas específicas, como asistentes virtuales (Siri, Alexa) o sistemas de recomendación.
+            </li>
+            <li>
+                <strong>IA general o IA fuerte:</strong> Se refiere a una inteligencia artificial con capacidad cognitiva similar a la humana. Aún no existe, pero es el objetivo de largo plazo.
+            </li>
+        </ul>
+    </div>
+
+    <h1>Clase 22 de Agosto</h1>
+
+    <h2 style="text-align: left;">Origen de la Inteligencia Artificial</h2>
+    <p style="text-align: justify;">
+        El origen de la inteligencia artificial se remonta a los años 30, con el trabajo de Alan Turing en la máquina Enigma, usada para descifrar mensajes secretos de los nazis durante la Segunda Guerra Mundial.
+    </p>
+
+    <h2 style="text-align: left;">Pensamiento Filosófico de Turing</h2>
+    <p style="text-align: justify;">
+        Turing creía que “si una máquina tiene un comportamiento inteligente en todos los aspectos, entonces es inteligente”. Inventó el Test de Turing, un método para comprobar si una máquina puede comportarse como un humano.
+    </p>
+
+    <h2 style="text-align: left;">Inteligencia Artificial Moderna</h2>
+    <p style="text-align: justify;">
+        En 1956, John McCarthy, Marvin Minsky y Claude Shannon popularizaron el término "Inteligencia Artificial". Las IA modernas tienen la capacidad de aprender, resolver problemas y percibir su entorno.
+    </p>
+
+    <h2 style="text-align:left;">La IA en la Actualidad</h2>
+    <p style="text-align:justify;">
+        Actualmente, la IA se utiliza en sectores como la salud, tecnología, seguridad y economía, y se espera que genere ganancias de hasta 300 mil millones de dólares anuales a partir de 2024.
+    </p>
+
+    <h1 style="text-align: left;">Fundamentos Filosóficos de la Inteligencia Artificial</h1>
+    <p style="text-align: justify;">
+        Los fundamentos filosóficos de la IA exploran cuestiones sobre la naturaleza de la inteligencia y la conciencia. Se pregunta si las máquinas pueden ser verdaderamente inteligentes o simplemente simular comportamiento inteligente. El Test de Turing, propuesto por Alan Turing, es una prueba para determinar si una máquina puede imitar el comportamiento humano de manera indistinguible. Además, se consideran las implicaciones éticas de crear IA, como los efectos sobre el empleo, la privacidad y la autonomía.
+
+    <h1>Modelo de Red Neuronal con TensorFlow</h1>
+    <div class="code-section">
+        <pre><code>import tensorflow as tf
+
+import tensorflow as tf  # Importamos la librería TensorFlow para crear redes neuronales
+import numpy as np  # Importamos NumPy para manejar arreglos numéricos
+
+celsius = np.array([-40, -10, 0, 8, 15, 22, 38], dtype=float)
+fahrenheit = np.array([-40, 14, 32, 46, 59, 72, 100], dtype=float)
+
+oculta1 = tf.keras.layers.Dense(units=3, input_shape=[1])
+oculta2 = tf.keras.layers.Dense(units=3)
+salida = tf.keras.layers.Dense(units=1)
+
+modelo = tf.keras.Sequential([oculta1, oculta2, salida])
+
+modelo.compile(
+    optimizer=tf.keras.optimizers.Adam(0.1),
+    loss='mean_squared_error'
+)
+
+print("Comenzando el entrenamiento...")
+historial = modelo.fit(celsius, fahrenheit, epochs=1000, verbose=False)
+print("¡Entrenamiento completado!")
+
+import matplotlib.pyplot as plt
+
+plt.xlabel("# Epoca")
+plt.ylabel("Magnitud de pérdida")
+plt.plot(historial.history["loss"])
+
+print("Hagamos una predicción...")
+resultado = modelo.predict([100.0])
+print(f"El resultado es {resultado} grados Fahrenheit")
+
+print("Pesos de la primera capa oculta:", oculta1.get_weights())
+print("Pesos de la segunda capa oculta:", oculta2.get_weights())
+print("Pesos de la capa de salida:", salida.get_weights())
+    </pre>
+
+    <figure>
+        <img src="./images/maze.png" alt="maze" width="600">
+        <figcaption>maze: Laberinto original</figcaption>
+    </figure>
+    <figure>
+        <img src="./images/maze_bfs.png" alt="maze_bfs" width="600">
+        <figcaption>maze_bfs: Laberinto resuelto con BFS</figcaption>
+    </figure>
+    <figure>
+        <img src="./images/maze_dfs.png" alt="maze_dfs" width="600">
+        <figcaption>maze_dfs: Laberinto resuelto con DFS</figcaption>
+    </figure>
+
+    <h1>Algoritmo de Búsqueda Binaria</h1>
+    <pre>
+def busqueda_binaria(lista, objetivo):
+    bajo = 0
+    alto = len(lista) - 1
+
+    while bajo <= alto:
+        medio = (bajo + alto) // 2
+        if lista[medio] == objetivo:
+            return medio
+        elif lista[medio] < objetivo:
+            bajo = medio + 1
+        else:
+            alto = medio - 1
+    return -1
+    </pre>
+
+    <h2>Ejemplo de Búsqueda Binaria</h2>
+    <pre>
+lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+objetivo = 7
+resultado = busqueda_binaria(lista, objetivo)
+print(f"El número {objetivo} se encuentra en la posición {resultado}")
+    </pre>
+
+    <h2>Comparación de DFS vs BFS</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Característica</th>
+                <th>BFS (Búsqueda en anchura)</th>
+                <th>DFS (Búsqueda en profundidad)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Enfoque</td>
+                <td>Nivel a nivel</td>
+                <td>Profundidad máxima antes de retroceder</td>
+            </tr>
+            <tr>
+                <td>Uso de memoria</td>
+                <td>Mayor (guarda todos los nodos de un nivel)</td>
+                <td>Menor (sólo guarda el camino actual)</td>
+            </tr>
+            <tr>
+                <td>Complejidad temporal</td>
+                <td>O(V + E)</td>
+                <td>O(V + E)</td>
+            </tr>
+            <tr>
+                <td>Complejidad espacial</td>
+                <td>O(V)</td>
+                <td>O(V)</td>
+            </tr>
+            <tr>
+        
